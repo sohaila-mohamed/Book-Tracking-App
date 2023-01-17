@@ -2,6 +2,7 @@ import ChangePicker from "../book-shelf-changer/changePicker";
 import {IChangeOption} from "../../models/changeOption"
 //ToDO move change picker configs to shelf component to customize book options   
 function Book(props: any) {
+    console.log(props);
     const shelfChangePickerOptions : IChangeOption[] =  [
         {
             value: "none",
@@ -36,17 +37,17 @@ function Book(props: any) {
                 <div
                     className="book-cover"
                     style={{
-                        width: props.bookDescription.cover.width,
-                        height: props.bookDescription.cover.height,
+                        width: 128,
+                        height: 192,
                         backgroundImage:
-                            `url(${props.bookDescription.cover.img})`,
+                            `url(${props.bookDescription.imageLinks.thumbnail})`,
                     }}
                 ></div>
                 <ChangePicker options={shelfChangePickerOptions}/>
             </div>
             
             <div className="book-title">{props.bookDescription.title}</div>
-            <div className="book-authors">{props.bookDescription.author}</div>
+            <div className="book-authors">{props.bookDescription.authors[0]}</div>
         </div>
     );
 
