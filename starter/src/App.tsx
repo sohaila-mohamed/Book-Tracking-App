@@ -85,7 +85,7 @@ function App() {
           <h1>MyReads</h1> 
         </div>
         <Fragment>
-        < ShelvesList shelfs={shelvesList} />
+        < ShelvesList shelves={shelvesList} />
         </Fragment>
         <div className="open-search">
             <a onClick={() => setShowSearchpage(!showSearchPage)}>Add a book</a>
