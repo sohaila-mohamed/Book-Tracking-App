@@ -1,13 +1,13 @@
 import "./App.css";
 import { Fragment, useState } from "react";
 import { IShelf } from "./models/shelf";
-import ShelfsList from "./components/shelf/shelfsList";
+import ShelvesList from "./components/shelf/shelvesList";
 import Search from "./components/search/search";
 
 
 function App() {
   const [showSearchPage, setShowSearchpage] = useState(false);
-  const shelfsList:IShelf[]=[
+  const shelvesList:IShelf[]=[
     {
       title:'Currently Reading',
       bookList:[
@@ -85,7 +85,7 @@ function App() {
           <h1>MyReads</h1> 
         </div>
         <Fragment>
-        < ShelfsList shelfs={shelfsList} />
+        < ShelvesList shelfs={shelvesList} />
         </Fragment>
         <div className="open-search">
             <a onClick={() => setShowSearchpage(!showSearchPage)}>Add a book</a>
