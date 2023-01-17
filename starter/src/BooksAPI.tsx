@@ -9,7 +9,7 @@ const headers = {
   Authorization: token,
 };
 
-export const get = (bookId) =>
+export const get = (bookId: any) =>
   fetch(`${api}/books/${bookId}`, { headers })
     .then((res) => res.json())
     .then((data) => data.book);
@@ -19,7 +19,7 @@ export const getAll = () =>
     .then((res) => res.json())
     .then((data) => data.books);
 
-export const update = (book, shelf) =>
+export const update = (book: { id: any; }, shelf: any) =>
   fetch(`${api}/books/${book.id}`, {
     method: "PUT",
     headers: {
@@ -29,7 +29,7 @@ export const update = (book, shelf) =>
     body: JSON.stringify({ shelf }),
   }).then((res) => res.json());
 
-export const search = (query, maxResults) =>
+export const search = (query: any, maxResults: any) =>
   fetch(`${api}/search`, {
     method: "POST",
     headers: {
