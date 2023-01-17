@@ -6,14 +6,14 @@ function Search(props:any){
       <div className="search-books-bar">
         <a
           className="close-search"
-          onClick={() => props.searchChanege.setShowSearchpage(!props.searchChanege.showSearchPage)}
+          onClick={() => props.searchConfigs.close.action(false)}
         >
           Close
         </a>
         <div className="search-books-input-wrapper">
           <input
             type="text"
-            placeholder="Search by title, author, or ISBN"
+            placeholder={props.searchConfigs.placeHolder}
           />
         </div>
       </div>

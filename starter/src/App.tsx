@@ -3,11 +3,14 @@ import { Fragment, useState } from "react";
 import { IShelf } from "./models/shelf";
 import ShelvesList from "./components/shelf/shelvesList";
 import Search from "./components/search/search";
-
-
+import { ISearch } from "./models/search";
+import * as bookApi from './BooksAPI'
+import { mapBookToShelf } from "./utils/bookutils";
+var _ = require('lodash');
 function App() {
   const [showSearchPage, setShowSearchpage] = useState(false);
-  const shelvesList:IShelf[]=[
+  let allBooks : any ;
+  let shelvesList:IShelf[]=[
     {
       title:'Currently Reading',
       bookList:[
@@ -73,12 +76,20 @@ function App() {
       ]
     }
   ]
+  bookApi.getAll().then((res)=>{
+    console.log("allbooks",res)
+    allBooks=res;
+    shelvesList= mapBookToShelf (allBooks,_.cloneDeep(shelvesList));
+    console.log("list",shelvesList);
+  }); 
+  
 
+  const searchConfigs : ISearch={close:{action:setShowSearchpage,value:showSearchPage},placeHolder:"Search by title, author, or ISBN"}
 
   return (
     <div className="app">
       {showSearchPage ? (
-          <Search searchChanege={{setShowSearchpage,showSearchPage}} />
+          <Search searchConfigs={searchConfigs} />
       ) : (
         <div className="list-books">
         <div className="list-books-title">

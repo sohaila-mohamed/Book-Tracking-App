@@ -1,5 +1,6 @@
 import ChangePicker from "../book-shelf-changer/changePicker";
 import {IChangeOption} from "../../models/changeOption"
+//ToDO move change picker configs to shelf component to customize book options   
 function Book(props: any) {
     const shelfChangePickerOptions : IChangeOption[] =  [
         {
