@@ -1,9 +1,8 @@
 import ChangePicker from "../book-shelf-changer/changePicker";
-import {IChangeOption} from "../../models/changeOption"
+import { IChangeOption } from "../../models/changeOption"
 //ToDO move change picker configs to shelf component to customize book options   
 function Book(props: any) {
-    console.log(props);
-    const shelfChangePickerOptions : IChangeOption[] =  [
+    const shelfChangePickerOptions: IChangeOption[] = [
         {
             value: "none",
             disabled: true,
@@ -30,24 +29,30 @@ function Book(props: any) {
             label: "None"
         }
 
-    ]
+    ];
+    let authors: any[] = props.bookDescription.authors?.length ? props.bookDescription.authors.map((author: string,index:number) => {
+        return <div className="book-authors" key={index.toLocaleString()}>{author}</div>
+    }) : [];
+
+    let thumbnail: any = props.bookDescription.imageLinks?.thumbnail && <div
+        className="book-cover"
+        style={{
+            width: 128,
+            height: 192,
+            backgroundImage:
+                `url(${props.bookDescription.imageLinks.thumbnail})`,
+        }}
+    ></div>
+
     return (
         <div className="book">
             <div className="book-top">
-                <div
-                    className="book-cover"
-                    style={{
-                        width: 128,
-                        height: 192,
-                        backgroundImage:
-                            `url(${props.bookDescription.imageLinks.thumbnail})`,
-                    }}
-                ></div>
-                <ChangePicker options={shelfChangePickerOptions}/>
+                 {thumbnail}
+                <ChangePicker options={shelfChangePickerOptions} />
             </div>
-            
+
             <div className="book-title">{props.bookDescription.title}</div>
-            <div className="book-authors">{props.bookDescription.authors[0]}</div>
+            {authors}
         </div>
     );
 

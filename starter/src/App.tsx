@@ -19,7 +19,7 @@ function App() {
       title: 'Read',
       bookList: []
     }
-  ]
+  ];
   const [showSearchPage, setShowSearchpage] = useState(false);
   const [shelvesList, setShelvesList] = useState(shelvesConfig);
   useEffect(() => getAllBooks(setShelvesList, shelvesList), []);

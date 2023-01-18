@@ -8,3 +8,13 @@ export const getAllBooks = (action: any, oldState: any) => {
         action(shelves);
     });
 }
+
+export const searchForBook = (query:string,action?:any)=>{
+    if(query){
+        bookApi.search(query,12).then((res)=>{
+            action && action(res);
+    });
+    }
+    else  action && action([]);
+
+}
