@@ -1,4 +1,4 @@
-import { IShelf } from "../models/shelf";
+import { IShelf } from "../../models/shelf";
 
 export function mapBookToShelf(books:any[],shelves:IShelf[]):IShelf[]{
 

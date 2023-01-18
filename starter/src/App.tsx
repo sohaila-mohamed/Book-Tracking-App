@@ -1,10 +1,10 @@
 import "./App.css";
 import { Fragment, useEffect, useState } from "react";
 import { IShelf } from "./models/shelf";
-import ShelvesList from "./components/shelf/shelvesList";
+import ShelvesList from "./components/shelf/shelvesList/shelvesList";
 import Search from "./components/search/search";
 import { ISearch } from "./models/search";
-import { getAllBooks } from './services/bookService'
+import { getAllBooks } from './core/services/bookService'
 function App() {
   let shelvesConfig: IShelf[] = [
     {

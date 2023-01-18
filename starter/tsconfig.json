@@ -26,5 +26,5 @@
   },
   "include": [
     "src"
-, "src/services/apiService/BooksAPI.tsx"  ]
+, "src/core/services/apiService/BooksAPI.tsx"  ]
 }

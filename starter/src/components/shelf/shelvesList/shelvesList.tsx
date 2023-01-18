@@ -1,5 +1,5 @@
-import { IShelf } from "../../models/shelf";
-import Shelf from "./shelf";
+import { IShelf } from "../../../models/shelf";
+import Shelf from "../shelf";
 
 function ShelvesList(props:any){
     const shelves= props.shelves.map((shelf:IShelf,index:number)=>{

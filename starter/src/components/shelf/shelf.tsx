@@ -4,7 +4,7 @@ import Book from "../book/book";
 function Shelf(props: any) {
   const books = props.config.bookList.map((book: IBook, index: number) => {
     return <li key={index.toLocaleString()}>
-      <Book bookDescription={book} />
+      <Book bookDescription={{book, shelfChangePicker:{display:true}}} />
     </li>
 
   });

@@ -1,4 +1,4 @@
-import * as bookApi from '../services/apiService/BooksAPI'
+import * as bookApi from './apiService/BooksAPI'
 import { mapBookToShelf } from "../utils/bookutils";
 var _ = require('lodash');
 
