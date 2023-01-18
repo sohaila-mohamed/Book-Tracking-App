@@ -4,7 +4,7 @@ import { IShelf } from "./core/models/shelf";
 import ShelvesList from "./components/shelf/shelvesList/shelvesList";
 import Search from "./components/search/search";
 import { ISearch } from "./core/models/search";
-import { getAllBooks } from './core/services/bookService'
+import { getAllBooks } from './components/book/bookService/bookService'
 function App() {
   let shelvesConfig: IShelf[] = [
     {
@@ -22,7 +22,7 @@ function App() {
   ];
   const [showSearchPage, setShowSearchpage] = useState(false);
   const [shelvesList, setShelvesList] = useState(shelvesConfig);
-  useEffect(() => getAllBooks(setShelvesList, shelvesList), []);
+  useEffect(() =>{getAllBooks(shelvesList,setShelvesList)}, []);
 
   const searchConfigs: ISearch = { close: { action: setShowSearchpage, value: showSearchPage }, placeHolder: "Search by title, author, or ISBN" }
 

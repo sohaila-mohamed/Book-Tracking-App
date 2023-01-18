@@ -5,7 +5,6 @@ import AuthorList from "./authorList/authorList";
 import { defaultChangePickerOptions } from "../../core/defines/bookDefines";
 import { IBook } from "../../core/models/book";
 function Book({book,shelfChangePicker,...prop}:IBook) {
-    console.log("prop",prop)
     const shelfChangePickerOptions: IChangeOption[] = defaultChangePickerOptions;
     let authors:any = book.authors?.length ? <AuthorList authors={ book.authors}/>:<div><p>Not Found</p></div>
     let thumbnail: any = book.imageLinks?.thumbnail?  <Thumbnail img={book.imageLinks.thumbnail} /> : <div> <p> Not FOUND</p></div>;

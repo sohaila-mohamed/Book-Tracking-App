@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IBook } from "../../core/models/book";
 import { ISearch } from "../../core/models/search";
-import { searchForBook } from "../../core/services/bookService";
+import { searchForBook } from "../book/bookService/bookService";
 import Book from "../book/book";
 var debounce = require('debounce');
 

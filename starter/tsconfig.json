@@ -26,5 +26,11 @@
   },
   "include": [
     "src"
-, "src/core/services/apiService/BooksAPI.tsx"  ]
+, "src/core/services/apiService/BooksAPI.tsx"  ],
+"scripts": {
+  "start": "react-scripts start",
+  "build": "react-scripts build",
+  "test": "jest",
+  "eject": "react-scripts eject"
+  },
 }
