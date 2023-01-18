@@ -1,9 +1,9 @@
 import "./App.css";
 import { Fragment, useEffect, useState } from "react";
-import { IShelf } from "./models/shelf";
+import { IShelf } from "./core/models/shelf";
 import ShelvesList from "./components/shelf/shelvesList/shelvesList";
 import Search from "./components/search/search";
-import { ISearch } from "./models/search";
+import { ISearch } from "./core/models/search";
 import { getAllBooks } from './core/services/bookService'
 function App() {
   let shelvesConfig: IShelf[] = [
@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="app">
       {showSearchPage ? (
-        <Search searchConfigs={searchConfigs} />
+        <Search close={searchConfigs.close} placeHolder={searchConfigs.placeHolder} />
       ) : (
         <div className="list-books">
           <div className="list-books-title">

@@ -1,17 +1,20 @@
-import { IBook } from "../../models/book";
+
+import { IBook } from "../../core/models/book";
+import { IShelf } from "../../core/models/shelf";
 import Book from "../book/book";
 
-function Shelf(props: any) {
-  const books = props.config.bookList.map((book: IBook, index: number) => {
+function Shelf({title,bookList,...props}: IShelf) {
+  const books = bookList.map((book: any, index: number) => {
+    let bookDescription : IBook= {book,shelfChangePicker:{display:true}};
     return <li key={index.toLocaleString()}>
-      <Book bookDescription={{book, shelfChangePicker:{display:true}}} />
+      <Book book={bookDescription.book} shelfChangePicker={bookDescription.shelfChangePicker}/>
     </li>
 
   });
   return (
     <div>
       <div className="bookshelf">
-        <h2 className="bookshelf-title">{props.config.title}</h2>
+        <h2 className="bookshelf-title">{title}</h2>
         <div className="bookshelf-books">
           <ol className="books-grid">
             {books}

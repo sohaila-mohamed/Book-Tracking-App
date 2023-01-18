@@ -1,4 +1,6 @@
-function Thumbnail(props:any){
+import { IThumbnail } from "../../../core/models/book";
+
+function Thumbnail({img,...props}:IThumbnail){
 
     return (
         <div
@@ -7,7 +9,7 @@ function Thumbnail(props:any){
             width: 128,
             height: 192,
             backgroundImage:
-                `url(${props.img})`,
+                `url(${img})`,
         }}
     ></div>
     )

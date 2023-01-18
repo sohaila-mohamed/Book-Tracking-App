@@ -1,4 +1,6 @@
-export interface ISearch {
+import { HTMLAttributes } from "react";
+
+export interface ISearch extends HTMLAttributes<HTMLElement> {
     close?:{
         action:any,
         value:any;
