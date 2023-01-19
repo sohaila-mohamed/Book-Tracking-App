@@ -17,15 +17,18 @@ describe ("map book to shelf function",()=>{
         let shelvesConfig: IShelf[] = [
             {
               title: 'Currently Reading',
-              bookList: []
+              bookList: [],
+              id:""
             },
             {
               title: 'Want to Read',
-              bookList: []
+              bookList: [],
+              id:''
             },
             {
               title: 'Read',
-              bookList: []
+              bookList: [],
+              id:''
             }
           ];
         // Action

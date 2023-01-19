@@ -5,7 +5,8 @@ export interface IBook extends HTMLAttributes<HTMLElement>{
     book:any,
     shelfChangePicker?:{
         display:boolean,
-        options?:IChangeOption[]
+        options?:IChangeOption[],
+        changeAction?:any
     }
 }
 export interface ICover{

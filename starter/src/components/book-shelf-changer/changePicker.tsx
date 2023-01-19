@@ -1,14 +1,19 @@
 import { IChangeOption, IChangePicker } from "../../core/models/changeOption";
 
-function ChangePicker({options,...props}:IChangePicker){
+function ChangePicker({options,changeAction,value,...props}:IChangePicker){
    const optionList =options.map((opt:IChangeOption,index:number)=>{
-    return <option key={index.toLocaleString()} value={opt.value} disabled={opt.disabled}>
+    return <option key={index.toLocaleString()} value={opt.value} disabled={opt.disabled || opt.value===value.shelf} >
     {opt.label}
   </option>
    });
+   function handleShelfChange($event:any){
+      if($event.target.value!=="None"){
+         changeAction && changeAction($event.target.value,value);
+      }
+   }
     return (
         <div className="book-shelf-changer">
-        <select>
+        <select onChange={handleShelfChange} defaultValue={"None"} >
          {optionList}
         </select>
       </div>

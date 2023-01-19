@@ -6,3 +6,4 @@ import shelvesSlice from "./booksSlice";
 })
 
 export default store;
+export type AppDispatch = typeof store.dispatch;

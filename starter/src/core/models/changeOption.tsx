@@ -8,4 +8,6 @@ export interface IChangeOption{
 
 export interface IChangePicker extends HTMLAttributes<HTMLElement> {
     options: IChangeOption[];
+    changeAction?:any,
+    value:any
 }

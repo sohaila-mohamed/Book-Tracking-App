@@ -3,9 +3,10 @@ import { mapBookToShelf } from "../../../core/utils/bookUtils/bookutils";
 var _ = require('lodash');
 
 export const getAllBooks = async ( oldState: any,action?: any,) => {
-    await bookApi.getAll().then((res) => {
+    return await  bookApi.getAll().then((res) => {
         let shelves = mapBookToShelf(res, _.cloneDeep(oldState));
-         action && action(shelves);
+        action && action(shelves);
+        return {shelves,books:res};
     }).catch((error) => {
         console.log(action);
         action && action([])
@@ -22,4 +23,15 @@ export const searchForBook = async (query: string, action?: any) => {
 
     else action && action([]);
 
+}
+
+export const updateBookShelf = async ( oldStateBook: any,newShelf:string,action?: any,) => {
+    return await  bookApi.update(oldStateBook,newShelf).then((res) => {
+        action && action(res);
+        return res;
+    }).catch((error) => {
+        console.log(action);
+        action && action(oldStateBook);
+
+    });
 }
