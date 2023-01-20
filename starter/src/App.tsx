@@ -5,37 +5,25 @@ import Search from "./components/search/search";
 import { ISearch } from "./core/models/search";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { fetchAllBooks } from "./core/store/thunkMiddleware/getAlBooks";
+import { fetchAllBooks } from "./core/store/thunkMiddleware/bookMiddleware";
 import { AppDispatch } from "./core/store";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import Main from "./components/mainPage/main";
 function App() {
-  const [showSearchPage, setShowSearchpage] = useState(false);
-   const shelvesList = useSelector((state:any)=>state.shelves.shelveList );
+  const shelvesList = useSelector((state: any) => state.shelves.shelveList);
   const dispatch = useDispatch<AppDispatch>();
-  function updateShelvesList(){
-    dispatch(fetchAllBooks(shelvesList)).then((res:any)=>{
+  function updateShelvesList() {
+    dispatch(fetchAllBooks(shelvesList)).then((res: any) => {
     })
   }
-  useEffect(updateShelvesList,[]);
-  const searchConfigs: ISearch = { close: { action: setShowSearchpage, value: showSearchPage }, placeHolder: "Search by title, author, or ISBN" }
-
+  useEffect(updateShelvesList, []);
+  const searchConfigs: ISearch = { close: {value: true }, placeHolder: "Search by title, author, or ISBN" }
   return (
     <div className="app">
-      {showSearchPage ? (
-        <Search close={searchConfigs.close} placeHolder={searchConfigs.placeHolder} />
-      ) : (
-        <div className="list-books">
-          <div className="list-books-title">
-            <h1>MyReads</h1>
-          </div>
-          <Fragment>
-          { shelvesList &&  < ShelvesList shelves={shelvesList} />}
-          </Fragment>
-          <div className="open-search">
-            <a onClick={() => setShowSearchpage(!showSearchPage)}>Add a book</a>
-          </div>
-        </div>
-      )}
-
+      <Routes>
+        <Route path="/" element={<Main shelvesList={shelvesList}/>}></Route>
+        <Route path="/search" element={<Search close={searchConfigs.close} placeHolder={searchConfigs.placeHolder} />}></Route>
+      </Routes>
     </div>
   );
 }

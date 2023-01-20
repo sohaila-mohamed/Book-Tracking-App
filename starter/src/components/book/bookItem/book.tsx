@@ -6,7 +6,7 @@ import { defaultChangePickerOptions } from "../../../core/defines/bookDefines";
 import { IBook } from "../../../core/models/book";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../../core/store";
-import { fetchUpdateBookShelf } from "../../../core/store/thunkMiddleware/getAlBooks";
+import { fetchUpdateBookShelf } from "../../../core/store/thunkMiddleware/bookMiddleware";
 function Book({book,shelfChangePicker,...prop}:IBook) {
 
     const dispatch = useDispatch<AppDispatch>();

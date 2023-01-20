@@ -5,13 +5,14 @@ import { searchForBook } from "../book/bookService/bookService";
 import Book from "../book/bookItem/book";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../core/store";
-import { fetchAddBookShelf } from "../../core/store/thunkMiddleware/getAlBooks";
+import { fetchAddBookShelf } from "../../core/store/thunkMiddleware/bookMiddleware";
+import { useNavigate } from "react-router-dom";
 var debounce = require('debounce');
 
 function Search({ close, open, placeHolder, ...props }: ISearch) {
 
   const dispatch = useDispatch<AppDispatch>();
-
+  const navigate  = useNavigate();
   const addBookToShelf=(shelf: string, book: any) =>{
     dispatch(fetchAddBookShelf({ newShelf: shelf, book }));
   }
@@ -29,7 +30,7 @@ function Search({ close, open, placeHolder, ...props }: ISearch) {
         {close && (<a
           data-testid="backBtn"
           className="close-search"
-          onClick={() => close.action(false)}
+          onClick={() => {close.action && close.action(false); navigate("/")}}
         >
           Close
         </a>

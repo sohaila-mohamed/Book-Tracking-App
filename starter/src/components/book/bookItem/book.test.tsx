@@ -1,10 +1,9 @@
 import { fireEvent, getByTestId, render, screen } from "@testing-library/react";
-import  '@testing-library/jest-dom'
-import * as bookService from "../../book/bookService/bookService" 
+import  '@testing-library/jest-dom' 
 import Book from "./book";
 import { Provider } from "react-redux";
 import store from "../../../core/store";
-import * as middlewareApis from "../../../core/store/thunkMiddleware/getAlBooks";
+import * as middlewareApis from "../../../core/store/thunkMiddleware/bookMiddleware";
 describe("when rendered book ", () => {
     describe("book given thumbnail",()=>{
         it("should creat book with cover ", () => { 

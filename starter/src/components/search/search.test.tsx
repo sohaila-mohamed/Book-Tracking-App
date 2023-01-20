@@ -4,11 +4,12 @@ import * as bookService from "../book/bookService/bookService"
 import Search from "./search";
 import { Provider } from "react-redux";
 import store from "../../core/store";
-import * as middlewareApis from "../../core/store/thunkMiddleware/getAlBooks";
+import * as middlewareApis from "../../core/store/thunkMiddleware/bookMiddleware";
+import { BrowserRouter } from "react-router-dom";
 describe("when rendered search bar ", () => {
   it("should create input with placeHlder and back button ", () => {
   const closeAction=jest.fn();  
-  const {container} =  render(<Provider store={store}>  <Search placeHolder="search" close={{action:closeAction,value:'/main'}} /></Provider>   ); 
+  const {container} =  render(<BrowserRouter><Provider store={store}>  <Search placeHolder="search" close={{action:closeAction,value:'/main'}} /></Provider> </BrowserRouter>   ); 
     expect(
       screen.getByPlaceholderText(/search/)
     ).toBeInTheDocument();
@@ -17,7 +18,7 @@ describe("when rendered search bar ", () => {
   ).toBeInTheDocument();
 });
   it("should call search function when search query is typed ", () => {
-    const {container} =  render(<Provider store={store}>  <Search placeHolder="search" /></Provider>   ); 
+    const {container} =  render(<BrowserRouter><Provider store={store}>  <Search placeHolder="search" /></Provider> </BrowserRouter>   ); 
      const searchSpy=jest.spyOn(bookService,'searchForBook');
      const selectElement=getByTestId(container,/searchInput/);
     fireEvent.change(selectElement, {

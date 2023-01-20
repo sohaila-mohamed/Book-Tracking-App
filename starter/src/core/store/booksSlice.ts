@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { IShelf } from "../models/shelf";
-import { fetchAddBookShelf, fetchAllBooks, fetchUpdateBookShelf } from './thunkMiddleware/getAlBooks'
+import { fetchAddBookShelf, fetchAllBooks, fetchUpdateBookShelf } from './thunkMiddleware/bookMiddleware'
 const initialShelves: IShelf[] = [
   {
     title: 'Currently Reading',

@@ -2,11 +2,11 @@ import { HTMLAttributes } from "react";
 
 export interface ISearch extends HTMLAttributes<HTMLElement> {
     close?:{
-        action:any,
+        action?:any,
         value:any;
     },
     open?:{
-        action:any,
+        action?:any,
         value:any;
     },
     placeHolder:string;
