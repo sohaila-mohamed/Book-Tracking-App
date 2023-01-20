@@ -3,11 +3,11 @@ import { IBook } from "../../core/models/book";
 import { IShelf } from "../../core/models/shelf";
 import Book from "../book/bookItem/book";
 
-function Shelf({title,bookList,...props}: IShelf) {
+function Shelf({ title, bookList, ...props }: IShelf) {
   const books = bookList.map((book: any, index: number) => {
-    let bookDescription : IBook= {book,shelfChangePicker:{display:true}};
+    let bookDescription: IBook = { book, shelfChangePicker: { display: true } };
     return <li key={index.toLocaleString()}>
-      <Book book={bookDescription.book} shelfChangePicker={bookDescription.shelfChangePicker}/>
+      <Book book={bookDescription.book} shelfChangePicker={bookDescription.shelfChangePicker} />
     </li>
 
   });
@@ -16,9 +16,12 @@ function Shelf({title,bookList,...props}: IShelf) {
       <div className="bookshelf">
         <h2 className="bookshelf-title">{title}</h2>
         <div className="bookshelf-books">
-          <ol className="books-grid" data-testid="bookList">
-            {books}
-          </ol>
+          {bookList.length ?
+            <ol className="books-grid" data-testid="bookList">
+              {books}
+            </ol>
+            : <div><h2>No Books Yet</h2></div>
+          }
         </div>
       </div>
     </div>
