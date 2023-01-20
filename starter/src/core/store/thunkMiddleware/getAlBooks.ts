@@ -1,5 +1,4 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
-import store from "../index";
 import { getAllBooks, updateBookShelf } from '../../../components/book/bookService/bookService'
 import { IShelf } from "../../models/shelf"
 import { addBookToShelf, mapBookIdstoShelves } from "../../utils/bookUtils/bookutils";

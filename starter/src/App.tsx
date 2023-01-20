@@ -1,13 +1,10 @@
 import "./App.css";
 import { Fragment, useEffect, useState } from "react";
-import { IShelf } from "./core/models/shelf";
 import ShelvesList from "./components/shelf/shelvesList/shelvesList";
 import Search from "./components/search/search";
 import { ISearch } from "./core/models/search";
-import { getAllBooks } from './components/book/bookService/bookService'
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { shelvesActions } from "./core/store/booksSlice";
 import { fetchAllBooks } from "./core/store/thunkMiddleware/getAlBooks";
 import { AppDispatch } from "./core/store";
 function App() {
