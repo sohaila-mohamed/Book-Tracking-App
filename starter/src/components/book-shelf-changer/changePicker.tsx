@@ -13,7 +13,7 @@ function ChangePicker({options,changeAction,value,...props}:IChangePicker){
    }
     return (
         <div className="book-shelf-changer">
-        <select onChange={handleShelfChange} defaultValue={"None"} >
+        <select onChange={handleShelfChange} defaultValue={"None"} data-testid="changePicker" >
          {optionList}
         </select>
       </div>

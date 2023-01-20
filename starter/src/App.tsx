@@ -12,7 +12,7 @@ import { fetchAllBooks } from "./core/store/thunkMiddleware/getAlBooks";
 import { AppDispatch } from "./core/store";
 function App() {
   const [showSearchPage, setShowSearchpage] = useState(false);
-   const shelvesList = useSelector((state:any)=>{console.log("state",state); return state.shelves.shelveList} );
+   const shelvesList = useSelector((state:any)=>state.shelves.shelveList );
   const dispatch = useDispatch<AppDispatch>();
   function updateShelvesList(){
     dispatch(fetchAllBooks(shelvesList)).then((res:any)=>{

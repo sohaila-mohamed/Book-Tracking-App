@@ -4,6 +4,7 @@ function Thumbnail({img,...props}:IThumbnail){
 
     return (
         <div
+        data-testid="bookCover"
         className="book-cover"
         style={{
             width: 128,

@@ -1,17 +1,17 @@
-import ChangePicker from "../book-shelf-changer/changePicker";
-import { IChangeOption } from "../../core/models/changeOption"
-import Thumbnail from "./thumbnail/thumbnail";
-import AuthorList from "./authorList/authorList";
-import { defaultChangePickerOptions } from "../../core/defines/bookDefines";
-import { IBook } from "../../core/models/book";
+import ChangePicker from "../../book-shelf-changer/changePicker";
+import { IChangeOption } from "../../../core/models/changeOption"
+import Thumbnail from "../thumbnail/thumbnail";
+import AuthorList from "../authorList/authorList";
+import { defaultChangePickerOptions } from "../../../core/defines/bookDefines";
+import { IBook } from "../../../core/models/book";
 import { useDispatch } from "react-redux";
-import store, { AppDispatch } from "../../core/store";
-import { fetchUpdateBookShelf } from "../../core/store/thunkMiddleware/getAlBooks";
+import { AppDispatch } from "../../../core/store";
+import { fetchUpdateBookShelf } from "../../../core/store/thunkMiddleware/getAlBooks";
 function Book({book,shelfChangePicker,...prop}:IBook) {
 
     const dispatch = useDispatch<AppDispatch>();
 
-    function updateBookShelf(shelf:string){
+    const updateBookShelf=(shelf:string,book:any)=>{
         dispatch(fetchUpdateBookShelf({oldStateBook:book,newShelf:shelf}));
     }
 
